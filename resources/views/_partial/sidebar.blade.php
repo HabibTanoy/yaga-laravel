@@ -10,16 +10,12 @@
             <li class="dropdown @if (Route::is('home')) active @endif">
                 <a href="{{ route('home') }}" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
-{{--            <li class="dropdown">--}}
-{{--                <a href="#" class="menu-toggle nav-link has-dropdown"><i--}}
-{{--                        data-feather="users"></i><span>Medicines</span></a>--}}
-{{--                <ul class="dropdown-menu">--}}
-{{--                    <li><a class="nav-link" href="">Admins</a></li>--}}
-{{--                    <li><a class="nav-link" href="">Customers</a></li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-
-
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="layout"></i><span>Slider Upload</span></a>
+                <ul class="dropdown-menu">
+                    <li class="active"><a class="nav-link" href="{{route('slider-view')}}">Slider</a></li>
+                </ul>
+            </li>
             {{-- THIS IS FOR DUMMY ONLY, CHANGE IT AS YOU NEED --}}
             <li class="dropdown @if (Route::is('home.*')) active @endif" style="visibility: hidden;">
                 <a href="{{ route('home') }}" class="nav-link">

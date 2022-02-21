@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/slider', [App\Http\Controllers\HomeController::class, 'slider'])->name('slider-view');
+Route::post('/slider',  [App\Http\Controllers\HomeController::class, 'sliderUpload'])->name('slider-upload');
+Route::get('/index', [App\Http\Controllers\HomeController::class, 'fronted'])->name('home');
