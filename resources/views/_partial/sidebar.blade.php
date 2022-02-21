@@ -11,9 +11,10 @@
                 <a href="{{ route('home') }}" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
             <li class="dropdown">
-                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="layout"></i><span>Slider Upload</span></a>
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="layout"></i><span>Sliders</span></a>
                 <ul class="dropdown-menu">
-                    <li class="active"><a class="nav-link" href="{{route('slider-view')}}">Slider</a></li>
+                    <li class="@if(Request::is('slider.index')) active @endif"><a class="nav-link" href="{{route('slider.index')}}">All Slider</a></li>
+                    <li class="@if(Request::is('slider.create')) active @endif"><a class="nav-link" href="{{route('slider.create')}}">Add Slider</a></li>
                 </ul>
             </li>
             {{-- THIS IS FOR DUMMY ONLY, CHANGE IT AS YOU NEED --}}

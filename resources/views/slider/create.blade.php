@@ -6,7 +6,7 @@
             <div class="card-header">
                 <h4>Upload Slider</h4>
             </div>
-            <form action="{{route('slider-upload')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('slider.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <div class="section-title">File Browser</div>
