@@ -16,6 +16,7 @@ class Images{
             Storage::disk('public')->put($file_name,$file->getContent());
             return $this->root.DIRECTORY_SEPARATOR.$file_name;
         }catch(\Exception $exception){
+            dd($exception);
             throw new Exception($exception->getMessage());
         }
     }

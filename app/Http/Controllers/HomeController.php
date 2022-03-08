@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ImageUploads\Images;
+//use App\ImageUploads\Images;
 use App\Models\Slider;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

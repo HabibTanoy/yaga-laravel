@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use app\ImageUploads\Images;
+use App\ImageUploads\Images;
 use App\Models\Slider;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -27,7 +27,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        //
+        return view('slider.create');
     }
 
 
@@ -93,6 +93,8 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Slider::where('id', $id)
+            ->delete();
+        return redirect()->route('slider.index');
     }
 }

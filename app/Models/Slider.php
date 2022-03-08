@@ -11,4 +11,6 @@ class Slider extends Model
 
     protected $guarded = ['id'];
     protected $table = 'sliders';
+
+
 }
