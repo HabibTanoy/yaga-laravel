@@ -39,14 +39,16 @@
                                 </div>
                             </td>
 
-                            {{--                            <td><img src="{{URL::asset($slider->image)}}" class="m-2" width="100px" height="80px" alt=""></td>--}}
                             <td>{{$slider->is_active}}</td>
                             <td>
-                                <form action="{{route('slider.destroy', $slider->id)}}" method='post'>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
+                                <div class="row">
+                                            <a class="btn btn-primary" href="{{route('slider.edit', $slider->id)}}">Allow</a>
+                                    <form class="ml-2" action="{{route('slider.destroy', $slider->id)}}" method='post'>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                         @endforeach

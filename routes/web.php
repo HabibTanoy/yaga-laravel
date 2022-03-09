@@ -21,9 +21,7 @@ Auth::routes();
 
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::resource('slider', 'SliderController');
-
+    Route::resource('service', 'ServiceController');
     Route::get('/home', 'HomeController@index')->name('home');
-//    Route::get('/slider', 'HomeController@slider')->name('slider-view');
-//    Route::post('/slider',  'HomeController@sliderUpload')->name('slider-upload');
     Route::get('/index', 'HomeController@fronted')->name('frontend');
 });

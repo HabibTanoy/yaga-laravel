@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\ImageUploads\Images;
-use App\Models\Slider;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class SliderController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::paginate(20);
-        return view('slider.index', compact('sliders'));
+        //
     }
 
     /**
@@ -27,9 +23,8 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('slider.create');
+        //
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -39,16 +34,7 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        $file_handler = new Images();
-        $current_time = Carbon::now()->toDateTimeString();
-        $file_name = str_replace(array(':', ' ', '-'), '_', $current_time) . '_' .rand(10000, 99999);
-        $image_file_path = $file_handler->uploadFile($request->file('slider_upload'), $file_name);
-
-        Slider::create([
-            'image' => $image_file_path
-        ]);
-
-        return redirect()->route('slider.index');
+        //
     }
 
     /**
@@ -70,11 +56,7 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        $is_active = Slider::where('id', $id)
-            ->update([
-                'is_active' => 1
-            ]);
-        return redirect()->route('slider.index');
+        //
     }
 
     /**
@@ -97,8 +79,6 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        Slider::where('id', $id)
-            ->delete();
-        return redirect()->route('slider.index');
+        //
     }
 }
