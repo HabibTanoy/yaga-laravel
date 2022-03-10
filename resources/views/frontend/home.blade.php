@@ -99,11 +99,11 @@
             <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
         </div>
     </nav>
-
     <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="w-100" src="{{ asset('frontend/img/carousel-1.jpg') }}" alt="Image">
+            @foreach($images as $key => $image)
+            <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
+                <img class="w-100" src="{{URL::asset($image->image) }}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
                         <h5 class="text-white text-uppercase mb-3 animated slideInDown">Creative & Innovative</h5>
@@ -113,17 +113,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item">
-                <img class="w-100" src="{{ asset('frontend/img/carousel-2.jpg') }}" alt="Image">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <div class="p-3" style="max-width: 900px;">
-                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Creative & Innovative</h5>
-                        <h1 class="display-1 text-white mb-md-4 animated zoomIn">Creative & Innovative Digital Solution</h1>
-                        <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Free Quote</a>
-                        <a href="" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
                 data-bs-slide="prev">
@@ -307,17 +297,19 @@
             <h1 class="mb-0">Custom IT Solutions for Your Successful Business</h1>
         </div>
         <div class="row g-5">
+            @foreach($services as $service)
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
                 <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
                     <div class="service-icon">
                         <i class="fa fa-shield-alt text-white"></i>
                     </div>
-                    <h4 class="mb-3">Cyber Security</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
+                    <h4 class="mb-3">{{$service->card_title}}</h4>
+                    <p class="m-0">{{$service->card_body_details}}</p>
                     <a class="btn btn-lg btn-primary rounded" href="">
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
+                @endforeach
             </div>
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
                 <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">

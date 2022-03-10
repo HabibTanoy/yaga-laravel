@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 //use App\ImageUploads\Images;
+use App\Models\Service;
 use App\Models\Slider;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -37,6 +38,7 @@ class HomeController extends Controller
     public function fronted()
     {
         $images = Slider::get();
-        return view('frontend.home');
+        $services = Service::get();
+        return view('frontend.home', compact('images', 'services'));
     }
 }

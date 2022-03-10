@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>taskeasy.io - Admin Dashboard</title>
+    <title>yaga - Admin Dashboard</title>
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
     <!-- Template CSS -->
@@ -16,6 +16,7 @@
     <!-- Custom style CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     <link rel='shortcut icon' type='image/x-icon' href="{{ asset('assets/img/favicon.ico') }}" />
+    <link rel="stylesheet" href="{{asset('assets/bundles/summernote/summernote-bs4.css')}}">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     @stack('css')
 </head>
