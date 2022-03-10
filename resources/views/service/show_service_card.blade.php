@@ -9,12 +9,12 @@
             <div class="card-body">
                 <table class="table table-striped">
                     <tbody>
-                        <tr>
-                            <th>Image</th>
-                            <th>Is Active</th>
-                            <th>Action</th>
-                        </tr>
-                        @foreach($sliders as $slider)
+                    <tr>
+                        <th>Image</th>
+                        <th>Is Active</th>
+                        <th>Action</th>
+                    </tr>
+                    @foreach($sliders as $slider)
                         <tr>
                             <td>
                                 <div class="container">
@@ -38,17 +38,11 @@
 
                                 </div>
                             </td>
-                            <td>
-                                @if($slider->is_active == 0)
-                                    <div class="badge badge-danger">Not Active</div>
-                                @endif
-                                @if($slider->is_active == 1)
-                                        <div class="badge badge-success">Active</div>
-                                @endif
-                            </td>
+
+                            <td>{{$slider->is_active}}</td>
                             <td>
                                 <div class="row">
-                                            <a class="btn btn-primary" href="{{route('slider.edit', $slider->id)}}">Allow</a>
+                                    <a class="btn btn-primary" href="{{route('slider.edit', $slider->id)}}">Allow</a>
                                     <form class="ml-2" action="{{route('slider.destroy', $slider->id)}}" method='post'>
                                         @csrf
                                         @method('DELETE')
@@ -57,7 +51,7 @@
                                 </div>
                             </td>
                         </tr>
-                        @endforeach
+                    @endforeach
                     </tbody>
                 </table>
                 {{ $sliders->links() }}

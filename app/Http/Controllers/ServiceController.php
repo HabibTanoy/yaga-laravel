@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -13,7 +15,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::paginate(20);
+        return view('slider.show_service_card', compact('services'));
     }
 
     /**
@@ -23,7 +26,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('service.create_service_card');
     }
 
     /**
@@ -34,7 +37,13 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $card_title = $request->card_title;
+        $card_body = $request->card_body;
+        $service_card = Service::create([
+            'card_title' => $card_title,
+            'card_body_details' => $card_body
+        ]);
+        return redirect()->route('service.show_service_card');
     }
 
     /**
