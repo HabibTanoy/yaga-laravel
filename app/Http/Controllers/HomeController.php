@@ -37,7 +37,7 @@ class HomeController extends Controller
 
     public function fronted()
     {
-        $images = Slider::get();
+        $images = Slider::active()->get();
         $services = Service::get();
         return view('frontend.home', compact('images', 'services'));
     }

@@ -15,7 +15,7 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::paginate(20);
-        return view('service.show_service_card', compact('services'));
+        return view('service.index', compact('services'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('service.create_service_card');
+        return view('service.create');
     }
 
     /**
@@ -40,7 +40,7 @@ class ServiceController extends Controller
         $card_body = $request->card_body_details;
         $service_card = Service::create([
             'card_title' => $card_title,
-            'card_body_details' => $card_body
+            'card_body_details' => strip_tags($card_body)
         ]);
         return redirect()->route('service.index');
     }
@@ -51,9 +51,10 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Service $service)
     {
-        //
+        $service->update(['is_active' => !$service->is_active]);
+        return redirect()->route('service.index');
     }
 
     /**
@@ -64,7 +65,9 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $update_data = Service::where('id', $id)
+            ->first();
+        return view('service.update_table', compact('update_data'));
     }
 
     /**
@@ -76,7 +79,16 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $card_title = $request->card_title;
+        $card_body = $request->card_body_details;
+        $service = [
+            'card_title' => $card_title,
+            'card_body_details' => strip_tags($card_body)
+        ];
+        $service_details_update = Service::find($id)
+            ->update($service);
+//        $service->update($request->all());
+        return redirect()->route('service.index');
     }
 
     /**

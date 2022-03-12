@@ -39,21 +39,19 @@
                                 </div>
                             </td>
                             <td>
-                                @if($slider->is_active == 0)
-                                    <div class="badge badge-danger">Not Active</div>
-                                @endif
-                                @if($slider->is_active == 1)
-                                        <div class="badge badge-success">Active</div>
-                                @endif
+                                <div class="badge @if ($slider->is_active == 0) badge-danger @else badge-success @endif">
+                                    @if ($slider->is_active == 0) Inactive
+                                    @else Active
+                                    @endif
+                                </div>
                             </td>
                             <td>
                                 <div class="row">
-                                            <a class="btn btn-primary" href="{{route('slider.edit', $slider->id)}}">Allow</a>
-                                    <form class="ml-2" action="{{route('slider.destroy', $slider->id)}}" method='post'>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
+                                    @if ($slider->is_active == 0)
+                                        <a class="btn btn-primary" href="{{route('slider.edit', $slider->id)}}">Active</a>
+                                    @else
+                                        <a class="btn btn-danger" href="{{route('slider.edit', $slider->id)}}">Inactive</a>
+                                    @endif
                                 </div>
                             </td>
                         </tr>

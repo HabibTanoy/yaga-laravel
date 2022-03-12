@@ -46,6 +46,7 @@
 <!-- JS Libraries -->
 <script src="{{ asset('assets/bundles/apexcharts/apexcharts.min.js') }}"></script>
 <script src="{{ asset('assets/bundles/select2/dist/js/select2.full.min.js') }}"></script>
+<script src="{{ asset('assets/bundles/summernote/summernote-bs4.js') }}"></script>
 <!-- Page Specific JS File -->
 <script src="{{ asset('assets/js/page/index.js') }}"></script>
 <!-- Template JS File -->

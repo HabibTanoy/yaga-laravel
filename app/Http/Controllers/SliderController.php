@@ -68,12 +68,9 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Slider $slider)
     {
-        $is_active = Slider::where('id', $id)
-            ->update([
-                'is_active' => 1
-            ]);
+        $slider->update(['is_active' => !$slider->is_active]);
         return redirect()->route('slider.index');
     }
 

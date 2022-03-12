@@ -12,5 +12,8 @@ class Slider extends Model
     protected $guarded = ['id'];
     protected $table = 'sliders';
 
-
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', 1);
+    }
 }
