@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 //use App\ImageUploads\Images;
+use App\Models\EmailFeedback;
 use App\Models\Service;
 use App\Models\Slider;
 use Carbon\Carbon;
@@ -38,7 +39,21 @@ class HomeController extends Controller
     public function fronted()
     {
         $images = Slider::active()->get();
-        $services = Service::get();
+        $services = Service::where('is_active', '=', 1)
+            ->get();
         return view('frontend.home', compact('images', 'services'));
+    }
+    public function email_feedback(Request $request)
+    {
+        $name = $request->name;
+        $email = $request->email;
+        $message = $request->message;
+
+        $email_feedback_data_store = EmailFeedback::create([
+            'name' => $name,
+            'email' => $email,
+            'message' => $message
+        ]);
+        return view('frontend.home');
     }
 }

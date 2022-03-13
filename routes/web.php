@@ -24,4 +24,16 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::resource('service', 'ServiceController');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/index', 'HomeController@fronted')->name('frontend');
+    Route::post('/email', 'HomeController@email_feedback')->name('email');
+});
+
+Route::get('send-mail', function () {
+
+//    $details = [
+//        'title' => 'Mail from ItSolutionStuff.com',
+//        'body' => 'This is for testing email using smtp'
+//    ];
+
+    \Mail::to('hbtonoy42@gmail.com')->send(new \App\Mail\MyTestMail());
+
 });

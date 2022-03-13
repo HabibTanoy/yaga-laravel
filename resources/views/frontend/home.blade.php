@@ -96,7 +96,7 @@
                 </div>
                 <a href="#" class="nav-item nav-link">Contact</a>
             </div>
-            <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+            <button type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
         </div>
     </nav>
     <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -309,63 +309,63 @@
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
-                @endforeach
             </div>
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fa fa-chart-pie text-white"></i>
-                    </div>
-                    <h4 class="mb-3">Data Analytics</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
-                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fa fa-code text-white"></i>
-                    </div>
-                    <h4 class="mb-3">Web Development</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
-                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fab fa-android text-white"></i>
-                    </div>
-                    <h4 class="mb-3">Apps Development</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fa fa-search text-white"></i>
-                    </div>
-                    <h4 class="mb-3">SEO Optimization</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
-                <div class="position-relative bg-primary rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
-                    <h3 class="text-white mb-3">Call Us For Quote</h3>
-                    <p class="text-white mb-3">Clita ipsum magna kasd rebum at ipsum amet dolor justo dolor est magna stet eirmod</p>
-                    <h2 class="text-white mb-0">+012 345 6789</h2>
-                </div>
-            </div>
+            @endforeach
+{{--            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">--}}
+{{--                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">--}}
+{{--                    <div class="service-icon">--}}
+{{--                        <i class="fa fa-chart-pie text-white"></i>--}}
+{{--                    </div>--}}
+{{--                    <h4 class="mb-3">Data Analytics</h4>--}}
+{{--                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>--}}
+{{--                    <a class="btn btn-lg btn-primary rounded" href="">--}}
+{{--                        <i class="bi bi-arrow-right"></i>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">--}}
+{{--                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">--}}
+{{--                    <div class="service-icon">--}}
+{{--                        <i class="fa fa-code text-white"></i>--}}
+{{--                    </div>--}}
+{{--                    <h4 class="mb-3">Web Development</h4>--}}
+{{--                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>--}}
+{{--                    <a class="btn btn-lg btn-primary rounded" href="">--}}
+{{--                        <i class="bi bi-arrow-right"></i>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">--}}
+{{--                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">--}}
+{{--                    <div class="service-icon">--}}
+{{--                        <i class="fab fa-android text-white"></i>--}}
+{{--                    </div>--}}
+{{--                    <h4 class="mb-3">Apps Development</h4>--}}
+{{--                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>--}}
+{{--                    <a class="btn btn-lg btn-primary rounded" href="">--}}
+{{--                        <i class="bi bi-arrow-right"></i>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">--}}
+{{--                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">--}}
+{{--                    <div class="service-icon">--}}
+{{--                        <i class="fa fa-search text-white"></i>--}}
+{{--                    </div>--}}
+{{--                    <h4 class="mb-3">SEO Optimization</h4>--}}
+{{--                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>--}}
+{{--                    <a class="btn btn-lg btn-primary rounded" href="">--}}
+{{--                        <i class="bi bi-arrow-right"></i>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">--}}
+{{--                <div class="position-relative bg-primary rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">--}}
+{{--                    <h3 class="text-white mb-3">Call Us For Quote</h3>--}}
+{{--                    <p class="text-white mb-3">Clita ipsum magna kasd rebum at ipsum amet dolor justo dolor est magna stet eirmod</p>--}}
+{{--                    <h2 class="text-white mb-0">+012 345 6789</h2>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
     </div>
 </div>
@@ -473,24 +473,25 @@
             </div>
             <div class="col-lg-5">
                 <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                    <form>
+                    <form action="{{route('email')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="row g-3">
                             <div class="col-xl-12">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;">
+                                <input type="text" name="name" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;">
                             </div>
                             <div class="col-12">
-                                <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">
+                                <input type="email" name="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">
                             </div>
+{{--                            <div class="col-12">--}}
+{{--                                <select class="form-select bg-light border-0" style="height: 55px;">--}}
+{{--                                    <option selected>Select A Service</option>--}}
+{{--                                    <option value="1">Service 1</option>--}}
+{{--                                    <option value="2">Service 2</option>--}}
+{{--                                    <option value="3">Service 3</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
                             <div class="col-12">
-                                <select class="form-select bg-light border-0" style="height: 55px;">
-                                    <option selected>Select A Service</option>
-                                    <option value="1">Service 1</option>
-                                    <option value="2">Service 2</option>
-                                    <option value="3">Service 3</option>
-                                </select>
-                            </div>
-                            <div class="col-12">
-                                <textarea class="form-control bg-light border-0" rows="3" placeholder="Message"></textarea>
+                                <textarea name="message" class="form-control bg-light border-0" rows="3" placeholder="Message"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-dark w-100 py-3" type="submit">Request A Quote</button>
