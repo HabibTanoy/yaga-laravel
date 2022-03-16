@@ -54,6 +54,6 @@ class HomeController extends Controller
             'email' => $email,
             'message' => $message
         ]);
-        return view('frontend.home');
+        return redirect()->route('frontend');
     }
 }

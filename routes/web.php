@@ -27,13 +27,4 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::post('/email', 'HomeController@email_feedback')->name('email');
 });
 
-Route::get('send-mail', function () {
 
-//    $details = [
-//        'title' => 'Mail from ItSolutionStuff.com',
-//        'body' => 'This is for testing email using smtp'
-//    ];
-
-    \Mail::to('hbtonoy42@gmail.com')->send(new \App\Mail\MyTestMail());
-
-});
