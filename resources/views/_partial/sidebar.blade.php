@@ -24,6 +24,13 @@
                     <li class="@if(Request::is('service.create')) active @endif"><a class="nav-link" href="{{route('service.create')}}">Add Service</a></li>
                 </ul>
             </li>
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="layout"></i><span>Client Feedback</span></a>
+                <ul class="dropdown-menu">
+                    <li class="@if(Request::is('client-feedback.index')) active @endif"><a class="nav-link" href="{{route('client-feedback.index')}}">All Feedback</a></li>
+                    <li class="@if(Request::is('client-feedback.create')) active @endif"><a class="nav-link" href="{{route('client-feedback.create')}}">Add Feedback</a></li>
+                </ul>
+            </li>
             {{-- THIS IS FOR DUMMY ONLY, CHANGE IT AS YOU NEED --}}
             <li class="dropdown @if (Route::is('home.*')) active @endif" style="visibility: hidden;">
                 <a href="{{ route('home') }}" class="nav-link">

@@ -20,8 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::namespace('App\Http\Controllers')->group(function () {
-    Route::resource('slider', 'SliderController');
-    Route::resource('service', 'ServiceController');
+    Route::resources([
+        'slider' => SliderController::class,
+        'service' => ServiceController::class,
+        'client-feedback' => ClientFeedbackController::class
+    ]);
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/index', 'HomeController@fronted')->name('frontend');
     Route::post('/email', 'HomeController@email_feedback')->name('email');
