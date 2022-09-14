@@ -25,6 +25,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
         'service' => ServiceController::class,
         'client-feedback' => ClientFeedbackController::class
     ]);
+//    Route::resource('client-feedback', ClientFeedbackController::class);
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/index', 'HomeController@fronted')->name('frontend');
     Route::post('/email', 'HomeController@email_feedback')->name('email');
