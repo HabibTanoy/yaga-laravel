@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 //use App\ImageUploads\Images;
+use App\Models\ClientFeedback;
 use App\Models\EmailFeedback;
+use App\Models\Employee;
 use App\Models\Service;
 use App\Models\Slider;
 use Carbon\Carbon;
@@ -18,6 +20,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        parent::__construct();
         $this->middleware('auth')->except('fronted');
     }
 
@@ -41,18 +44,18 @@ class HomeController extends Controller
         $images = Slider::active()->get();
         $services = Service::where('is_active', '=', 1)
             ->get();
-        return view('frontend.home', compact('images', 'services'));
+        $employees = Employee::where('is_active', '=', 1)
+            ->get();
+        $client_feedbacks = ClientFeedback::where('is_active', '=', 1)
+            ->get();
+        return view('frontend.index', compact('images', 'services', 'employees', 'client_feedbacks'));
     }
     public function email_feedback(Request $request)
     {
-        $name = $request->name;
-        $email = $request->email;
-        $message = $request->message;
-
-        $email_feedback_data_store = EmailFeedback::create([
-            'name' => $name,
-            'email' => $email,
-            'message' => $message
+        EmailFeedback::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message
         ]);
         return redirect()->route('frontend');
     }

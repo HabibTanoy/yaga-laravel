@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\ImageUploads\Images;
 use App\Models\ClientFeedback;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ClientFeedbackController extends Controller
@@ -36,10 +38,16 @@ class ClientFeedbackController extends Controller
      */
     public function store(Request $request)
     {
+        $file_handler = new Images();
+        $current_time = Carbon::now()->toDateTimeString();
+        $file_name = str_replace(array(':', ' ', '-'), '_', $current_time) . '_' .rand(10000, 99999);
+        $image_file_path = $file_handler->uploadFile($request->file('slider_upload'), $file_name);
+
         ClientFeedback::create([
             'client_name' => $request->name,
             'designation' => $request->designation,
-            'comments' => strip_tags($request->comments)
+            'comments' => strip_tags($request->comments),
+            'image' => $image_file_path
         ]);
         return redirect()->route('client-feedback.index');
     }
@@ -79,11 +87,25 @@ class ClientFeedbackController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $clientFeedback = [
-            'client_name' => $request->name,
-            'designation' => $request->designation,
-            'comments' => strip_tags($request->comments)
-        ];
+        if ($request->file('slider_upload')) {
+            $file_handler = new Images();
+            $current_time = Carbon::now()->toDateTimeString();
+            $file_name = str_replace(array(':', ' ', '-'), '_', $current_time) . '_' .rand(10000, 99999);
+            $image_file_path = $file_handler->uploadFile($request->file('slider_upload'), $file_name);
+
+            $clientFeedback = [
+                'client_name' => $request->name,
+                'designation' => $request->designation,
+                'comments' => strip_tags($request->comments),
+                'image' => $image_file_path
+            ];
+        } else {
+            $clientFeedback = [
+                'client_name' => $request->name,
+                'designation' => $request->designation,
+                'comments' => strip_tags($request->comments),
+            ];
+        }
 
         $service_details_update = ClientFeedback::find($id)
             ->update($clientFeedback);

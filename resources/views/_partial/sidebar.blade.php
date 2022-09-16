@@ -31,6 +31,20 @@
                     <li class="@if(Request::is('client-feedback.create')) active @endif"><a class="nav-link" href="{{route('client-feedback.create')}}">Add Feedback</a></li>
                 </ul>
             </li>
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="layout"></i><span>Employee</span></a>
+                <ul class="dropdown-menu">
+                    <li class="@if(Request::is('employee.index')) active @endif"><a class="nav-link" href="{{route('employee.index')}}">All Employee</a></li>
+                    <li class="@if(Request::is('employee.create')) active @endif"><a class="nav-link" href="{{route('employee.create')}}">Add Employee</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="layout"></i><span>Config</span></a>
+                <ul class="dropdown-menu">
+                    <li class="@if(Request::is('get_in_touch')) active @endif"><a class="nav-link" href="{{route('get_in_touch')}}">Get In Touch</a></li>
+                    <li class="@if(Request::is('project')) active @endif"><a class="nav-link" href="{{route('project')}}">Project Count</a></li>
+                </ul>
+            </li>
             {{-- THIS IS FOR DUMMY ONLY, CHANGE IT AS YOU NEED --}}
             <li class="dropdown @if (Route::is('home.*')) active @endif" style="visibility: hidden;">
                 <a href="{{ route('home') }}" class="nav-link">
