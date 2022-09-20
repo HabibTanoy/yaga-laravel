@@ -17,5 +17,9 @@ class Controller extends BaseController
         $get_touch = Config::where('name', 'get_touch')->first();
         $get_touch = json_decode($get_touch->config, true);
         view()->share('get_touch', $get_touch);
+
+        $projects = Config::where('name', 'project_done')->first();
+        $projects = json_decode($projects->config, true);
+        view()->share('projects', $projects);
     }
 }
