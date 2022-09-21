@@ -38,17 +38,26 @@ class ClientFeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        $file_handler = new Images();
-        $current_time = Carbon::now()->toDateTimeString();
-        $file_name = str_replace(array(':', ' ', '-'), '_', $current_time) . '_' .rand(10000, 99999);
-        $image_file_path = $file_handler->uploadFile($request->file('slider_upload'), $file_name);
+        if ($request->file('slider_upload')) {
+            $file_handler = new Images();
+            $current_time = Carbon::now()->toDateTimeString();
+            $file_name = str_replace(array(':', ' ', '-'), '_', $current_time) . '_' .rand(10000, 99999);
+            $image_file_path = $file_handler->uploadFile($request->file('slider_upload'), $file_name);
 
-        ClientFeedback::create([
-            'client_name' => $request->name,
-            'designation' => $request->designation,
-            'comments' => strip_tags($request->comments),
-            'image' => $image_file_path
-        ]);
+            ClientFeedback::create([
+                'client_name' => $request->name,
+                'designation' => $request->designation,
+                'comments' => strip_tags($request->comments),
+                'image' => $image_file_path
+            ]);
+        } else {
+            ClientFeedback::create([
+                'client_name' => $request->name,
+                'designation' => $request->designation,
+                'comments' => strip_tags($request->comments)
+            ]);
+        }
+
         return redirect()->route('client-feedback.index');
     }
 

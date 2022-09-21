@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\ImageUploads\Images;
-use App\Models\Employee;
+use App\Models\About;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class EmployeeController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::paginate(20);
-        return view('employee.index', compact('employees'));
+        $abouts = About::paginate(20);
+        return view('about.index', compact('abouts'));
     }
 
     /**
@@ -27,7 +27,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employee.create');
+        return view('about.create');
     }
 
     /**
@@ -44,51 +44,55 @@ class EmployeeController extends Controller
             $file_name = str_replace(array(':', ' ', '-'), '_', $current_time) . '_' .rand(10000, 99999);
             $image_file_path = $file_handler->uploadFile($request->file('image_upload'), $file_name);
 
-            Employee::create([
-                'name' => $request->name,
-                'designation' => $request->designation,
+            About::create([
+                'title' => $request->title,
+                'body' => strip_tags($request->body),
+//                'tag' => $request->tag,
+                'number' => $request->number,
                 'image' => $image_file_path
             ]);
         } else {
-            Employee::create([
-                'name' => $request->name,
-                'designation' => $request->designation
+            About::create([
+                'title' => $request->title,
+                'body' => strip_tags($request->body),
+//                'tag' => $request->tag,
+                'number' => $request->number
             ]);
         }
 
-        return redirect()->route('employee.index');
+        return redirect()->route('about.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Employee  $employee
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Employee $employee)
+    public function show(About $about)
     {
-        $employee->update(['is_active' => !$employee->is_active]);
-        return redirect()->route('employee.index');
+        $about->update(['is_active' => !$about->is_active]);
+        return redirect()->route('about.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Employee  $employee
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $update_data = Employee::where('id', $id)
+        $update_data = About::where('id', $id)
             ->first();
-        return view('employee.update_table', compact('update_data'));
+        return view('about.update_table', compact('update_data'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Employee  $employee
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -99,33 +103,38 @@ class EmployeeController extends Controller
             $file_name = str_replace(array(':', ' ', '-'), '_', $current_time) . '_' .rand(10000, 99999);
             $image_file_path = $file_handler->uploadFile($request->file('image_upload'), $file_name);
 
-            $employee_update =[
-                'name' => $request->name,
-                'designation' => $request->designation,
+            $about = [
+                'title' => $request->title,
+                'body' => strip_tags($request->body),
+//                'tag' => $request->tag,
+                'number' => $request->number,
                 'image' => $image_file_path
             ];
         } else {
-            $employee_update =[
-                'name' => $request->name,
-                'designation' => $request->designation
+            $about = [
+                'title' => $request->title,
+                'body' => strip_tags($request->body),
+//                'tag' => $request->tag,
+                'number' => $request->number
             ];
         }
 
-        $employee_update_data = Employee::find($id)
-            ->update($employee_update);
-        return redirect()->route('employee.index');
+        $about_details_update = About::find($id)
+            ->update($about);
+
+        return redirect()->route('about.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Employee  $employee
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Employee::where('id', $id)
+        About::where('id', $id)
             ->delete();
-        return redirect()->route('employee.index');
+        return redirect()->route('about.index');
     }
 }

@@ -45,6 +45,20 @@
                     <li class="@if(Request::is('project')) active @endif"><a class="nav-link" href="{{route('project')}}">Project Count</a></li>
                 </ul>
             </li>
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="layout"></i><span>About</span></a>
+                <ul class="dropdown-menu">
+                    <li class="@if(Request::is('about.index')) active @endif"><a class="nav-link" href="{{route('about.index')}}">All About Details</a></li>
+                    <li class="@if(Request::is('about.create')) active @endif"><a class="nav-link" href="{{route('about.create')}}">Add About</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="layout"></i><span>Brands</span></a>
+                <ul class="dropdown-menu">
+                    <li class="@if(Request::is('brand.index')) active @endif"><a class="nav-link" href="{{route('brand.index')}}">All Brand</a></li>
+                    <li class="@if(Request::is('brand.create')) active @endif"><a class="nav-link" href="{{route('brand.create')}}">Add Brand</a></li>
+                </ul>
+            </li>
             {{-- THIS IS FOR DUMMY ONLY, CHANGE IT AS YOU NEED --}}
             <li class="dropdown @if (Route::is('home.*')) active @endif" style="visibility: hidden;">
                 <a href="{{ route('home') }}" class="nav-link">

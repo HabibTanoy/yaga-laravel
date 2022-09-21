@@ -17,9 +17,12 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::resource('client-feedback', ClientFeedbackController::class);
     Route::resource('service', ServiceController::class);
     Route::resource('employee', EmployeeController::class);
+    Route::resource('about', AboutController::class);
+    Route::resource('brand', BrandController::class);
+
     Route::get('/dashboard', 'HomeController@index')->name('home');
     Route::get('/', 'HomeController@fronted')->name('frontend');
-    Route::get('/about', 'FrontendViewController@about')->name('about');
+    Route::get('/about-show', 'FrontendViewController@about')->name('about');
     Route::get('/services', 'FrontendViewController@service')->name('service');
     Route::get('/contact', 'FrontendViewController@contact')->name('contact');
     Route::post('/contact-us', 'FrontendViewController@contact_us')->name('contact-us');

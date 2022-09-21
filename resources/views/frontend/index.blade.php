@@ -50,45 +50,45 @@
     </div>
     <!-- Full Screen Search End -->
 <!-- Facts Start -->
-<div class="container-fluid facts py-5 pt-lg-0">
-    <div class="container py-5 pt-lg-0">
-        <div class="row gx-0">
-            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
-                <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
-                    <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
-                        <i class="fa fa-users text-primary"></i>
-                    </div>
-                    <div class="ps-4">
-                        <h5 class="text-white mb-0">Happy Clients</h5>
-                        <h1 class="text-white mb-0" data-toggle="counter-up">{{$projects['client']}}</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
-                <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
-                    <div class="bg-primary d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
-                        <i class="fa fa-check text-white"></i>
-                    </div>
-                    <div class="ps-4">
-                        <h5 class="text-primary mb-0">Projects Done</h5>
-                        <h1 class="mb-0" data-toggle="counter-up">{{$projects['project']}}</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">
-                <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
-                    <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
-                        <i class="fa fa-award text-primary"></i>
-                    </div>
-                    <div class="ps-4">
-                        <h5 class="text-white mb-0">Win Awards</h5>
-                        <h1 class="text-white mb-0" data-toggle="counter-up">{{$projects['awards']}}</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{--<div class="container-fluid facts py-5 pt-lg-0">--}}
+{{--    <div class="container py-5 pt-lg-0">--}}
+{{--        <div class="row gx-0">--}}
+{{--            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">--}}
+{{--                <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">--}}
+{{--                    <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">--}}
+{{--                        <i class="fa fa-users text-primary"></i>--}}
+{{--                    </div>--}}
+{{--                    <div class="ps-4">--}}
+{{--                        <h5 class="text-white mb-0">Happy Clients</h5>--}}
+{{--                        <h1 class="text-white mb-0" data-toggle="counter-up">{{$projects['client']}}</h1>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">--}}
+{{--                <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">--}}
+{{--                    <div class="bg-primary d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">--}}
+{{--                        <i class="fa fa-check text-white"></i>--}}
+{{--                    </div>--}}
+{{--                    <div class="ps-4">--}}
+{{--                        <h5 class="text-primary mb-0">Projects Done</h5>--}}
+{{--                        <h1 class="mb-0" data-toggle="counter-up">{{$projects['project']}}</h1>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">--}}
+{{--                <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">--}}
+{{--                    <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">--}}
+{{--                        <i class="fa fa-award text-primary"></i>--}}
+{{--                    </div>--}}
+{{--                    <div class="ps-4">--}}
+{{--                        <h5 class="text-white mb-0">Win Awards</h5>--}}
+{{--                        <h1 class="text-white mb-0" data-toggle="counter-up">{{$projects['awards']}}</h1>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!-- Facts Start -->
 
 
@@ -99,9 +99,9 @@
             <div class="col-lg-7">
                 <div class="section-title position-relative pb-3 mb-5">
                     <h5 class="fw-bold text-primary text-uppercase">About Us</h5>
-                    <h1 class="mb-0">The Best IT Solution With 10 Years of Experience</h1>
+                    <h1 class="mb-0">{{$title}}</h1>
                 </div>
-                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
+                <p class="mb-4">{{$body}}</p>
                 <div class="row g-0 mb-3">
                     <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
                         <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Award Winning</h5>
@@ -118,14 +118,14 @@
                     </div>
                     <div class="ps-4">
                         <h5 class="mb-2">Call to ask any question</h5>
-                        <h4 class="text-primary mb-0">{{$get_touch['number']}}</h4>
+                        <h4 class="text-primary mb-0">{{$number}}</h4>
                     </div>
                 </div>
                 <a href="{{route('quote')}}" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Request A Quote</a>
             </div>
             <div class="col-lg-5" style="min-height: 500px;">
                 <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="{{ asset('frontend/img/about.jpg') }}" style="object-fit: cover;">
+                    <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="{{URL::asset($about_image) }}" style="object-fit: cover;">
                 </div>
             </div>
         </div>

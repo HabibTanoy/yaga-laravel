@@ -3,15 +3,9 @@
     <div class="container py-5 mb-5">
         <div class="bg-white">
             <div class="owl-carousel vendor-carousel">
-                <img src="{{ asset('frontend/img/vendor-1.jpg') }}" alt="">
-                <img src="{{ asset('frontend/img/vendor-2.jpg') }}" alt="">
-                <img src="{{ asset('frontend/img/vendor-3.jpg') }}" alt="">
-                <img src="{{ asset('frontend/img/vendor-4.jpg') }}" alt="">
-                <img src="{{ asset('frontend/img/vendor-5.jpg') }}" alt="">
-                <img src="{{ asset('frontend/img/vendor-6.jpg') }}" alt="">
-                <img src="{{ asset('frontend/img/vendor-7.jpg') }}" alt="">
-                <img src="{{ asset('frontend/img/vendor-8.jpg') }}" alt="">
-                <img src="{{ asset('frontend/img/vendor-9.jpg') }}" alt="">
+                @foreach($brands as $brand)
+                <img src="{{URL::asset($brand->image)}}" alt="">
+                @endforeach
             </div>
         </div>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 //use App\ImageUploads\Images;
+use App\Models\About;
 use App\Models\ClientFeedback;
 use App\Models\EmailFeedback;
 use App\Models\Employee;
@@ -48,7 +49,15 @@ class HomeController extends Controller
             ->get();
         $client_feedbacks = ClientFeedback::where('is_active', '=', 1)
             ->get();
-        return view('frontend.index', compact('images', 'services', 'employees', 'client_feedbacks'));
+        $abouts = About::get();
+        foreach ($abouts as $about) {
+            $title = $about->title;
+            $body = $about->body;
+            $number = $about->number;
+            $about_image = $about->image;
+        }
+
+        return view('frontend.index', compact('images', 'services', 'employees', 'client_feedbacks', 'title', 'body', 'number', 'about_image'));
     }
     public function email_feedback(Request $request)
     {

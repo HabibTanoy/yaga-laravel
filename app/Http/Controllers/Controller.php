@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Config;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -21,5 +22,9 @@ class Controller extends BaseController
         $projects = Config::where('name', 'project_done')->first();
         $projects = json_decode($projects->config, true);
         view()->share('projects', $projects);
+
+        $brands = Brand::where('is_active', '=', 1)
+            ->get();
+        view()->share('brands', $brands);
     }
 }

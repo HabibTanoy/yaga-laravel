@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\ClientFeedback;
 use App\Models\Contact;
 use App\Models\Employee;
@@ -15,7 +16,14 @@ class FrontendViewController extends Controller
     public function about()
     {
         $employees = Employee::where('is_active', '=', 1)->get();
-        return view('frontend.about', compact('employees'));
+        $abouts = About::get();
+        foreach ($abouts as $about) {
+            $title = $about->title;
+            $body = $about->body;
+            $number = $about->number;
+            $image = $about->image;
+        }
+        return view('frontend.about', compact('employees', 'title', 'body', 'number', 'image'));
     }
     public function service()
     {
