@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\ImageUploads\Images;
 use App\Models\About;
+use App\Models\Choose;
 use App\Models\ClientFeedback;
 use App\Models\Contact;
 use App\Models\Employee;
@@ -49,7 +51,8 @@ class FrontendViewController extends Controller
     }
     public function feature()
     {
-        return view('frontend.feature');
+        $choose_data = Choose::all();
+        return view('frontend.feature', compact('choose_data'));
     }
     public function teams()
     {
@@ -98,5 +101,51 @@ class FrontendViewController extends Controller
         $get_data['updated_at'] = Carbon::now();
         Config::update($get_data);
         return redirect()->route('project');
+    }
+
+    public function choose_us()
+    {
+        $choose_data = Choose::all();
+        return view('choose_us.choose', compact('choose_data'));
+    }
+
+    public function choose_store(Request $request)
+    {
+        if ($request->file('image_upload')) {
+            $file_handler = new Images();
+            $current_time = Carbon::now()->toDateTimeString();
+            $file_name = str_replace(array(':', ' ', '-'), '_', $current_time) . '_' .rand(10000, 99999);
+            $image_file_path = $file_handler->uploadFile($request->file('image_upload'), $file_name);
+
+            $choose = [
+                'title' => $request->title,
+                'tags_one' => $request->tag_one,
+                'tag_body_one' => $request->body_one,
+                'tags_two' => $request->tag_two,
+                'tag_body_two' => $request->body_two,
+                'tags_three' => $request->tag_three,
+                'tag_body_three' => $request->body_three,
+                'tags_four' => $request->tag_four,
+                'tag_body_four' => $request->body_four,
+                'image' => $image_file_path
+            ];
+        } else {
+            $choose = [
+                'title' => $request->title,
+                'tags_one' => $request->tag_one,
+                'tag_body_one' => $request->body_one,
+                'tags_two' => $request->tag_two,
+                'tag_body_two' => $request->body_two,
+                'tags_three' => $request->tag_three,
+                'tag_body_three' => $request->body_three,
+                'tags_four' => $request->tag_four,
+                'tag_body_four' => $request->body_four
+            ];
+        }
+
+        $about_details_update = Choose::where('id', 1)
+            ->update($choose);
+
+        return redirect()->route('choose_us');
     }
 }

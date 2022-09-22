@@ -43,6 +43,7 @@
                 <ul class="dropdown-menu">
                     <li class="@if(Request::is('get_in_touch')) active @endif"><a class="nav-link" href="{{route('get_in_touch')}}">Get In Touch</a></li>
                     <li class="@if(Request::is('project')) active @endif"><a class="nav-link" href="{{route('project')}}">Project Count</a></li>
+                    <li class="@if(Request::is('choose_us')) active @endif"><a class="nav-link" href="{{route('choose_us')}}">Why Choose Us</a></li>
                 </ul>
             </li>
             <li class="dropdown">

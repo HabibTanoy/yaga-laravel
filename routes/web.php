@@ -35,6 +35,8 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::put('/get-in-touch', 'FrontendViewController@get_in_touch_store')->name('get_in_touch_store');
     Route::get('/projects', 'FrontendViewController@project_complete')->name('project');
     Route::put('/projects', 'FrontendViewController@project_complete_store')->name('project_store');
+    Route::get('/choose', 'FrontendViewController@choose_us')->name('choose_us');
+    Route::put('/choose', 'FrontendViewController@choose_store')->name('choose_store');
 });
 
 

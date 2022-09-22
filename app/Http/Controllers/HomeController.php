@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 //use App\ImageUploads\Images;
 use App\Models\About;
+use App\Models\Choose;
 use App\Models\ClientFeedback;
 use App\Models\EmailFeedback;
 use App\Models\Employee;
@@ -56,8 +57,9 @@ class HomeController extends Controller
             $number = $about->number;
             $about_image = $about->image;
         }
+        $choose_data = Choose::all();
 
-        return view('frontend.index', compact('images', 'services', 'employees', 'client_feedbacks', 'title', 'body', 'number', 'about_image'));
+        return view('frontend.index', compact('images', 'services', 'employees', 'client_feedbacks', 'title', 'body', 'number', 'about_image', 'choose_data'));
     }
     public function email_feedback(Request $request)
     {
