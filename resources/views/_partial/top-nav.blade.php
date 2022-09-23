@@ -69,15 +69,15 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
                 <div class="dropdown-title">Hello {{ auth()->user()->name }}</div>
-                <a href="#" class="dropdown-item has-icon"> <i class="far
-										fa-user"></i> Profile
-                </a>
-                <a href="#" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
-                    Activities
-                </a>
-                <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
-                    Settings
-                </a>
+{{--                <a href="#" class="dropdown-item has-icon"> <i class="far--}}
+{{--										fa-user"></i> Profile--}}
+{{--                </a>--}}
+{{--                <a href="#" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>--}}
+{{--                    Activities--}}
+{{--                </a>--}}
+{{--                <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>--}}
+{{--                    Settings--}}
+{{--                </a>--}}
                 <div class="dropdown-divider"></div>
                 <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                    class="dropdown-item has-icon text-danger">

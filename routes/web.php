@@ -8,7 +8,7 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::resources([
